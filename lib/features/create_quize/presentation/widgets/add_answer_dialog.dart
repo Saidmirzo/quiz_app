@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_switch/flutter_switch.dart';
 
+import '../../../../core/components/components.dart';
 import '../../../../core/constants/all_constants.dart';
 import 'widgets.dart';
 
 class AddAnswerDialog extends StatelessWidget {
   const AddAnswerDialog({
-    super.key, this.textEditingController, required this.onSubmit,
+    super.key,
+    this.textEditingController,
+    required this.onSubmit,
   });
   final TextEditingController? textEditingController;
   final Function() onSubmit;
-
 
   @override
   Widget build(BuildContext context) {
@@ -47,15 +48,7 @@ class AddAnswerDialog extends StatelessWidget {
                 'Correct answer',
                 style: AppTextStyles.body16w5,
               ),
-              FlutterSwitch(
-                value: true,
-                activeColor: AppColors.primaryColor,
-                onToggle: (bool value) {},
-                height: 24,
-                width: 44,
-                padding: 2,
-                toggleSize: 20,
-              ),
+              CustomSwitch(onChange: (value) {}, value: true),
             ],
           )
         ],
