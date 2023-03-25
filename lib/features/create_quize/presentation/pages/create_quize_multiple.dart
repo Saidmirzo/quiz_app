@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quiz_app/core/components/custom_large_button.dart';
 import 'package:quiz_app/features/create_quize/presentation/widgets/widgets.dart';
+import 'package:quiz_app/routes.dart';
 
 class CreateQuizeMultiple extends StatefulWidget {
   const CreateQuizeMultiple({super.key});
@@ -38,7 +39,7 @@ class _CreateQuizeMultipleState extends State<CreateQuizeMultiple> {
             alignment: Alignment.bottomCenter,
             child: CustomLargeButton(
               text: 'Add Question',
-              onTap: () {},
+              onTap: () => Navigator.pushNamed(context, Routes.reviewPage),
             ),
           )
         ],

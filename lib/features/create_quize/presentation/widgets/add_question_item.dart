@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quiz_app/core/constants/all_constants.dart';
@@ -52,7 +54,7 @@ class _AddQuestionItemState extends State<AddQuestionItem> {
                       color: Colors.transparent,
                       child: AddAnswerDialog(
                         textEditingController: answerContrller,
-                        onSubmit: () {
+                        onSubmit: (isCorrect) {
                           Navigator.pop(context);
                           listAnswers.add(answerContrller.text);
                           answerContrller.clear();

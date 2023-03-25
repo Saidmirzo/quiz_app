@@ -34,6 +34,10 @@ class _Icons extends _AssetsHolder {
 
   String get arrowRight => "$basePath/arrow_right.svg";
 
+  String get devices => "$basePath/devices.svg";
+
+  String get pencil => "$basePath/pencil.svg";
+
 }
 
 class _Images extends _AssetsHolder {
@@ -44,6 +48,8 @@ class _Images extends _AssetsHolder {
   String get onboarding2 => "$basePath/onboarding2.png";
 
   String get onboarding3 => "$basePath/onboarding3.png";
+
+  String get reviewBg => "$basePath/review_bg.svg";
 }
 
 class _Videos extends _AssetsHolder {

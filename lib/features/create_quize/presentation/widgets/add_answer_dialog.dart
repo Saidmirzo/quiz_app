@@ -6,13 +6,14 @@ import '../../../../core/constants/all_constants.dart';
 import 'widgets.dart';
 
 class AddAnswerDialog extends StatelessWidget {
-  const AddAnswerDialog({
+  AddAnswerDialog({
     super.key,
     this.textEditingController,
     required this.onSubmit,
   });
   final TextEditingController? textEditingController;
-  final Function() onSubmit;
+  final ValueChanged<bool> onSubmit;
+  bool isCorrect = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class AddAnswerDialog extends StatelessWidget {
             height: 100.h,
             color: AppColors.grey5Color,
             autoFocuse: true,
-            onSubmit: onSubmit,
+            onSubmit: () => onSubmit(isCorrect),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,7 +49,12 @@ class AddAnswerDialog extends StatelessWidget {
                 'Correct answer',
                 style: AppTextStyles.body16w5,
               ),
-              CustomSwitch(onChange: (value) {}, value: true),
+              CustomSwitch(
+                onChange: (value) {
+                  isCorrect = value;
+                },
+                value: false,
+              ),
             ],
           )
         ],
