@@ -38,6 +38,16 @@ class _Icons extends _AssetsHolder {
 
   String get pencil => "$basePath/pencil.svg";
 
+  String get sun => "$basePath/ic_sun.svg";
+
+  String get home => "$basePath/home.png";
+
+  String get search => "$basePath/search.png";
+
+  String get progress => "$basePath/progress.png";
+
+  String get person => "$basePath/person.png";
+
 }
 
 class _Images extends _AssetsHolder {
@@ -50,6 +60,12 @@ class _Images extends _AssetsHolder {
   String get onboarding3 => "$basePath/onboarding3.png";
 
   String get reviewBg => "$basePath/review_bg.svg";
+
+  String get defaultBg => "$basePath/default_bg.png";
+
+  String get user1 => "$basePath/user1.png";
+
+  
 }
 
 class _Videos extends _AssetsHolder {

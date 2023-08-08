@@ -19,27 +19,20 @@ class _CreateQuizeMultipleState extends State<CreateQuizeMultiple> {
       padding: EdgeInsets.symmetric(vertical: 16.h),
       appBarTitile: 'Create Quiz',
       onBack: () => Navigator.pop(context),
-      child: Stack(
+      child: Column(
         children: [
-          Column(
-            children: [
-              NumberIndicator(
-                pageController: pageController,
-              ),
-              Expanded(
-                child: PageView(
-                  controller: pageController,
-                  children:
-                      List.generate(10, (index) => const AddQuestionItem()),
-                ),
-              )
-            ],
+          NumberIndicator(
+            pageController: pageController,
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: CustomLargeButton(
-              text: 'Add Question',
-              onTap: () => Navigator.pushNamed(context, Routes.reviewPage),
+          Expanded(
+            child: PageView(
+              controller: pageController,
+              children: List.generate(
+                  10,
+                  (index) => AddQuestionItem(
+                        index: index,
+                        pageController: pageController,
+                      )),
             ),
           )
         ],

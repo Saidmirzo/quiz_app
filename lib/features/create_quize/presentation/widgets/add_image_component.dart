@@ -11,8 +11,11 @@ class AddImageComponent extends StatefulWidget {
   const AddImageComponent({
     super.key,
     this.margin,
+    required this.onGetImage, this.path,
   });
   final EdgeInsets? margin;
+  final ValueChanged<String> onGetImage;
+  final String? path;
 
   @override
   State<AddImageComponent> createState() => _AddImageComponentState();
@@ -28,6 +31,7 @@ class _AddImageComponentState extends State<AddImageComponent> {
       onTap: () async {
         image = await getImage();
         setState(() {});
+        widget.onGetImage(image!.path);
       },
       child: Container(
         width: double.maxFinite,
@@ -37,11 +41,12 @@ class _AddImageComponentState extends State<AddImageComponent> {
           color: AppColors.grey5Color,
           borderRadius: BorderRadius.circular(20.r),
         ),
-        child: image != null
+        child: 
+        image != null || widget.path!=null
             ? ClipRRect(
                 borderRadius: BorderRadius.circular(20.r),
                 child: Image.file(
-                  File(image!.path),
+                  File(widget.path!=null?widget.path!:image!.path),
                   fit: BoxFit.cover,
                 ),
               )
@@ -63,6 +68,7 @@ class _AddImageComponentState extends State<AddImageComponent> {
 
   Future<XFile?> getImage() async {
     XFile? xFile = await picker.pickImage(source: ImageSource.gallery);
+
     return xFile;
   }
 }

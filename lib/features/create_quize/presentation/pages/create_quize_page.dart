@@ -15,13 +15,14 @@ class CreateQuizePage extends StatelessWidget {
       onBack: () {},
       child: Column(
         children: [
-          const AddImageComponent(),
+          AddImageComponent(onGetImage: (value) {}),
           const CustomTextField(title: 'Title', hintText: 'Enter quiz title'),
           CustomTextField(
             title: 'Quiz Category',
             hintText: 'Choose quiz category',
             isButton: true,
-            onTap: () =>Navigator.pushNamed(context, Routes.chooseSubjectsPage),
+            onTap: () =>
+                Navigator.pushNamed(context, Routes.chooseSubjectsPage),
           ),
           CustomTextField(
             title: 'Description',
@@ -38,7 +39,3 @@ class CreateQuizePage extends StatelessWidget {
     );
   }
 }
-
-
-
-

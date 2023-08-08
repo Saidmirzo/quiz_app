@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/features/create_quize/presentation/pages/create_quize_multiple.dart';
 import 'package:quiz_app/features/create_quize/presentation/pages/review_page.dart';
+import 'package:quiz_app/features/home/presentation/pages/home_page.dart';
 import 'features/create_quize/presentation/pages/choose_subjects_page.dart';
 import 'features/create_quize/presentation/pages/create_quize_page.dart';
 
 
 class Routes {
-  static const createQuizePage = '/';
+  static const createQuizePage = '/createQuizePage';
   static const chooseSubjectsPage = '/chooseSubjectsPage';
   static const createQuizeMultiple = '/createQuizeMultiple';
   static const reviewPage = '/reviewPage';
+  static const homePage = '/';
   
 
   static Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -38,6 +40,11 @@ class Routes {
           return MaterialPageRoute(
             settings: routeSettings,
             builder: (_) => const ReviewPage(),
+          );
+        case homePage:
+          return MaterialPageRoute(
+            settings: routeSettings,
+            builder: (_) => const HomePage(),
           );
         default:
           return MaterialPageRoute(

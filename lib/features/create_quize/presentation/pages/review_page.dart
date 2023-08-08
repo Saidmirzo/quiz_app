@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quiz_app/core/components/custom_app_bar.dart';
 import 'package:quiz_app/core/constants/app_colors.dart';
 import 'package:quiz_app/core/constants/app_text_styles.dart';
 import 'package:quiz_app/core/constants/assets.dart';
+import 'package:quiz_app/features/create_quize/domain/entities/test.dart';
 
+import '../bloc/bloc/create_quiz_bloc.dart';
 import '../widgets/widgets.dart';
 
 class ReviewPage extends StatelessWidget {
@@ -13,11 +16,15 @@ class ReviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Test> modelList = context.read<CreateQuizBloc>().listTests;
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       appBar: CustomAppBar(
-          title: 'Create Quiz', funcBack: () => Navigator.pop(context)),
+        title: 'Create Quiz',
+        funcBack: () => Navigator.pop(context),
+      ),
       body: ListView(
+        physics: const BouncingScrollPhysics(),
         children: [
           Align(
             alignment: Alignment.centerRight,
@@ -135,13 +142,14 @@ class ReviewPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Column(
-                    children: [
-                      ReviewQuetionsItem(
-                          number: 1,
-                          quetion:
-                              'Which mathematical symbol was the title of Ed Sheeran’s first album in 2011?',
-                          imgPath: ''),
-                    ],
+                    children: List.generate(
+                      modelList.length,
+                      (index) => ReviewQuetionsItem(
+                        quetion: modelList[index].quetion,
+                        imgPath:modelList[index].quetionImage ,
+                        number: modelList[index].quiz + 1,
+                      ),
+                    ),
                   ),
                 )
               ],
