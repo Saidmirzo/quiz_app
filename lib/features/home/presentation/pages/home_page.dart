@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:quiz_app/core/constants/app_colors.dart';
 import 'package:quiz_app/core/constants/app_text_styles.dart';
 import 'package:quiz_app/core/constants/assets.dart';
+import 'package:quiz_app/routes.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -78,7 +79,10 @@ class HomePage extends StatelessWidget {
                       children: [
                         Text('Live Quizzes', style: AppTextStyles.body20w5),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, Routes.chooseSubjectsPage);
+                          },
                           child: Text(
                             'See all',
                             style: AppTextStyles.body14w5.copyWith(
@@ -109,7 +113,12 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(onPressed: () {}),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, Routes.createQuizePage);
+          },
+          child: const Icon(Icons.add),
+        ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.only(
@@ -125,16 +134,24 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                    onPressed: () {}, icon: Image.asset(Assets.icons.home)),
+                  onPressed: () {},
+                  icon: Image.asset(Assets.icons.home),
+                ),
                 SizedBox(width: 30.w),
                 IconButton(
-                    onPressed: () {}, icon: Image.asset(Assets.icons.search)),
+                  onPressed: () {},
+                  icon: Image.asset(Assets.icons.search),
+                ),
                 const Spacer(),
                 IconButton(
-                    onPressed: () {}, icon: Image.asset(Assets.icons.progress)),
+                  onPressed: () {},
+                  icon: Image.asset(Assets.icons.progress),
+                ),
                 SizedBox(width: 30.w),
                 IconButton(
-                    onPressed: () {}, icon: Image.asset(Assets.icons.person)),
+                  onPressed: () {},
+                  icon: Image.asset(Assets.icons.person),
+                ),
               ],
             ),
           ),

@@ -5,8 +5,8 @@ abstract class AppColors {
 
   static const Color black = Color(0xFF000000);
   static const Color accentColor = Colors.white;
-  static const Color primaryColor = Color(0xff6A5AE0);
-  static const Color secondaryColor = Color(0xff9087E5);
+  static const Color primaryColor = Color.fromARGB(255, 98, 145, 255);
+  static const Color secondaryColor = Color.fromARGB(255, 140, 171, 255);
   static const Color pinkColor = Color(0xffFF8FA2);
   static const Color accent1Color = Color(0xffFFD6DD);
   static const Color accent2Color = Color(0xffC4D0FB);

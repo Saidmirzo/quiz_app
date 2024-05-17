@@ -15,20 +15,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(375, 812),
-        splitScreenMode: true,
-        minTextAdapt: true,
-        builder: (context, child) {
-          return BlocProvider(
-            create: (context) => CreateQuizBloc(),
-            child: MaterialApp(
-              title: 'Flutter Demo',
-              theme: ThemeData(
-                primarySwatch: Colors.blue,
-              ),
-              onGenerateRoute: (settings) => Routes.generateRoute(settings),
+      designSize: const Size(375, 812),
+      splitScreenMode: true,
+      minTextAdapt: true,
+      builder: (context, child) {
+        return BlocProvider(
+          create: (context) => CreateQuizBloc(),
+          child: MaterialApp(
+            title: 'Flutter Demo',
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+              useMaterial3: false,
+              // bottomNavigationBarTheme: BottomNavigationBarThemeData(),
             ),
-          );
-        });
+            onGenerateRoute: (settings) => Routes.generateRoute(settings),
+          ),
+        );
+      },
+    );
   }
 }

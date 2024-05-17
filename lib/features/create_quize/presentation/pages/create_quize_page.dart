@@ -12,7 +12,9 @@ class CreateQuizePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCreateQuizScaffold(
       appBarTitile: 'Create Quiz',
-      onBack: () {},
+      onBack: () {
+        Navigator.pop(context);
+      },
       child: Column(
         children: [
           AddImageComponent(onGetImage: (value) {}),
